@@ -38,15 +38,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function administrator()
-    {
-        foreach ($this->roles as $role) {
-            if ($role->name == 'Administrator' && $this->active == 1) {
-                return true;
-            }
-        }
-    }
-
     public function roles()
     {
         return $this->belongsToMany(Role::class);
